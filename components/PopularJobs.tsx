@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const PopolarJobs = () => {
+const PopularJobs = () => {
   return (
     <View>
       <Text>PopolarJobs</Text>
@@ -9,4 +9,4 @@ const PopolarJobs = () => {
   )
 }
 
-export default PopolarJobs
+export default PopularJobs
