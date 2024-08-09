@@ -17,6 +17,7 @@ const COLORS = {
   };
   
   const SIZES = {
+    xxSmall:5,
     xSmall: 10,
     small: 12,
     medium: 16,

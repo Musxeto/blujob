@@ -4,9 +4,16 @@ import { StyleSheet } from "react-native";
 
 import { COLORS, SIZES } from "@/constants";
 
-const ScreenHeaderBtn = ({ iconUrl, dimension, handlePress }) => {
+// Define the type for props
+type ScreenHeaderBtnProps = {
+  iconUrl: any; // You can replace 'any' with the appropriate type if you know it, e.g., ImageSourcePropType
+  dimension: number;
+  handlePress: () => void;
+};
+
+const ScreenHeaderBtn: React.FC<ScreenHeaderBtnProps> = ({ iconUrl, dimension, handlePress }) => {
   return (
-    <TouchableOpacity onPress={handlePress} style={styles.btnContainer} onPress={handlePress}>
+    <TouchableOpacity onPress={handlePress} style={styles.btnContainer}>
       <Image
         source={iconUrl}
         resizeMode="cover"

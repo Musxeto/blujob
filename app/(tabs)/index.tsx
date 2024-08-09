@@ -4,39 +4,54 @@ import { Stack, useRouter } from "expo-router";
 import { COLORS, icons, images, SIZES } from "@/constants";
 import ScreenHeaderBtn from "@/components/ScreenHeaderBtn";
 import Welcome from "@/components/Welcome";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import PopularJobs from "@/components/PopularJobs";
 import NearByJobs from "@/components/NearByJobs";
 export default function Home() {
   const router = useRouter();
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
-      <Stack.Screen
-        options={{
-          headerStyle: {
-            backgroundColor: COLORS.lightWhite,
-          },
-          headerShadowVisible: false,
-          headerLeft: () => {
-            return<ScreenHeaderBtn iconUrl={icons.menu} dimension="60%" handlePress={undefined} />
-          },
-          headerRight: () => {
-            return <ScreenHeaderBtn iconUrl={images.profile} dimension="60%" handlePress={undefined} />;
-          },
-          headerTitle: "",
-        }}
-      />
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <View
-          style={{
-            flex: 1,
-            padding: SIZES.medium,
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
+        <Stack.Screen
+          options={{
+            headerStyle: {
+              backgroundColor: COLORS.lightWhite,
+            },
+            headerShadowVisible: false,
+            headerLeft: () => {
+              return (
+                <ScreenHeaderBtn
+                  iconUrl={icons.menu}
+                  dimension="60%"
+                  handlePress={undefined}
+                />
+              );
+            },
+            headerRight: () => {
+              return (
+                <ScreenHeaderBtn
+                  iconUrl={images.profile}
+                  dimension="60%"
+                  handlePress={undefined}
+                />
+              );
+            },
+            headerTitle: "",
           }}
-        >
-          <Welcome />
-          <PopularJobs />
-          <NearByJobs />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+        />
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View
+            style={{
+              flex: 1,
+              padding: SIZES.medium,
+            }}
+          >
+            <Welcome />
+            <PopularJobs />
+            <NearByJobs />
+          </View>
+        </ScrollView>
+      </SafeAreaView>
+    </GestureHandlerRootView>
   );
 }
